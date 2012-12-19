@@ -80,14 +80,14 @@
 					    
 					    $mail = new Rmail(); 
 					    $mail->setHTMLCharset('UTF-8');
-					    $mail->setFrom('Anzeigenbestellformular <anzeigen@regimmo.net>');
+					    $mail->setFrom('Anzeigenbestellformular <mail@sebastian-engel.de>');
 					    $mail->setSubject('regimmo :: Anzeigenbestellung');
 					    $mail->setHTML($mailtext);
 					    $mail->setReceipt('mail@sebastian-engel.de');
 					    if(isset($_FILES['file']['name']) && $_FILES['file']['name']!=""){
 						    $mail->addAttachment(new FileAttachment('./uploads/'.basename( $_FILES['file']['name']).''));
 						}
-					    $result = $mail->send(array('mail@sebastian-engel.de', 'anzeigen@regimmo.net', $email));
+					    $result = $mail->send(array('mail@sebastian-engel.de', $email));
 					    
 					    /*	Bild wieder löschen	*/
 					    /*
